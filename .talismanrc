@@ -1,6 +1,4 @@
 fileignoreconfig:
-- filename: src/app/app.component.html
-  checksum: 07369cbec5a9f9bfaca6787b171feb31e00f3d907cce0492cc5ef02f292a3074
 - filename: package-lock.json
-  checksum: d32b9bc6dfaa1350d2713bb442ca859c03a9432b98864676f1901a1cc3182864
+  checksum: 837796f74dfa3f1176e9af213e8ecd769b5ed047f5ff670203ce98d2ee6a5241
 version: ""
