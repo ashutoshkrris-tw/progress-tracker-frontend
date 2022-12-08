@@ -1,8 +1,4 @@
 fileignoreconfig:
-- filename: src/index.html
-  checksum: 069e64b07bccde3b7a7c373e504d65d1ababb0cd567836ce3c5970acac65561f
-- filename: src/app/login/login.component.ts
-  checksum: 29289a38f1714010946770e8337ee09f8e9b3a1c7c57d00ccf01b6fec31d23da
-- filename: src/app/login/login.component.html
-  checksum: bb5d1aded551e6c15705ae45af7e35a6fbdf2dbd23bb5d52b006cd7f17b5e619
+- filename: src/app/service/hardcoded-authentication.service.ts
+  checksum: d19de08676ab1207d3c08f1f0c7e816add58e089df224b700dea9851bb650c53
 version: ""

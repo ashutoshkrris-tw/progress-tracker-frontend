@@ -9,6 +9,7 @@ import { ErrorComponent } from './error/error.component';
 import { ListCoursesComponent } from './list-courses/list-courses.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
     ListCoursesComponent,
     MenuComponent,
     FooterComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
