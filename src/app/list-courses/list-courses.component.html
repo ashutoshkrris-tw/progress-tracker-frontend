@@ -1,0 +1,44 @@
+<div class="container">
+  <h1 class="text-center my-3">Your Courses</h1>
+
+  <div class="card m-3" *ngFor="let course of courses">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-10">
+          <a href="{{ course.link }}"
+            ><h5 class="card-title">{{ course.name }}</h5></a
+          >
+        </div>
+        <div class="col-md-2">
+          <div class="mask">
+            <div class="d-flex justify-content-end align-items-end h-100">
+              <h5>
+                <span
+                  class="badge ms-2"
+                  [ngClass]="{
+                    'text-bg-primary': course.status === 'In Progress',
+                    'text-bg-success': course.status === 'Completed',
+                    'text-bg-warning': course.status === 'Not Yet Started'
+                  }"
+                  >{{ course.status }}</span
+                >
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="d-flex justify-content-start">
+          <p class="card-text text-muted">Started on: {{ course.startedOn | date }}</p></div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex justify-content-end align-items-end"><p class="card-text text-muted" *ngIf="course.status === 'Completed'">
+            Completed on: {{ course.completedOn | date }}
+          </p></div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

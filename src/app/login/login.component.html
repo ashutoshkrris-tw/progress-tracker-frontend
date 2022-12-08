@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="container p-3">
+  <h1 class="text-center">Login</h1>
+
+  <div class="alert alert-danger" role="alert" *ngIf="invalidLogin">
+    {{ errorMessage }}
+  </div>
+
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      name="username"
+      id="username"
+      [(ngModel)]="username"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      name="password"
+      id="password"
+      [(ngModel)]="password"
+    />
+  </div>
+  <div class="mb-3">
+    <button type="button" class="btn btn-success" (click)="handleLogin()">
+      Login
+    </button>
+  </div>
+</div>
