@@ -1,19 +1,15 @@
-import { Component } from '@angular/core';
-
-export enum Status {
-  NotYetStarted = "Not Yet Started",
-  InProgress = "In Progress",
-  Completed = "Completed"
-}
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CourseDataService } from '../service/data/course-data.service';
 
 export class Course {
   constructor(
-    public id: Number,
-    public name: String,
-    public link: String,
+    public id: number,
+    public name: string,
+    public link: string,
     public startedOn: Date,
     public completedOn: Date,
-    public status: Status
+    public status: string
   ) { }
 }
 
@@ -23,11 +19,40 @@ export class Course {
   styleUrls: ['./list-courses.component.css']
 })
 
-export class ListCoursesComponent {
+export class ListCoursesComponent implements OnInit {
+  courses: Course[] = []
+  deleteMessage = ""
 
-  courses = [
-    new Course(1, "Go Java Full Stack with Spring Boot and Angular", "https://thoughtworks.udemy.com/course/full-stack-application-development-with-spring-boot-and-angular/", new Date("2022-12-06"), new Date(), Status.InProgress),
-    new Course(2, "Master Microservices with Spring Boot and Spring Cloud", "https://thoughtworks.udemy.com/course/microservices-with-spring-boot-and-spring-cloud/", new Date("2022-11-01"), new Date("2022-12-05"), Status.Completed)
-  ]
+  constructor(private courseService: CourseDataService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.refreshCourses();
+  }
+
+  refreshCourses() {
+    this.courseService.retrieveAllCourses().subscribe(
+      response => {
+        this.courses = response;
+      }
+    )
+  }
+
+  deleteCourse(id: number) {
+    this.courseService.deleteCourseById(id).subscribe(
+      response => {
+        console.log(response);
+        this.deleteMessage = `Course ${id} deleted successfully!`
+        this.refreshCourses();
+      }
+    );
+  }
+
+  updateCourse(id: number) {
+    this.router.navigate(["courses", id])
+  }
+
+  addCourse() {
+    this.router.navigate(["courses", -1]);
+  }
 
 }

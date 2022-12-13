@@ -1,13 +1,22 @@
 <div class="container">
   <h1 class="text-center my-3">Your Courses</h1>
+  <button class="btn btn-info mb-3" (click)="addCourse()">New Course</button>
 
-  <div class="card m-3" *ngFor="let course of courses">
+  <div class="alert alert-success" role="alert" *ngIf="deleteMessage">
+    {{ deleteMessage }}
+  </div>
+
+  <div class="card mb-3" *ngFor="let course of courses">
     <div class="card-body">
       <div class="row">
         <div class="col-md-10">
-          <a href="{{ course.link }}"
-            ><h5 class="card-title">{{ course.name }}</h5></a
-          >
+          <h5 class="card-title">
+            <a href="{{ course.link }}">{{ course.name }}</a>
+            <button
+              class="btn bi bi-pencil-square"
+              (click)="updateCourse(course.id)"
+            ></button>
+          </h5>
         </div>
         <div class="col-md-2">
           <div class="mask">
@@ -27,10 +36,15 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row mt-3">
         <div class="col-md-6">
           <div class="d-flex justify-content-start">
-            <p class="card-text text-muted">
+            <p
+              class="card-text text-muted"
+              *ngIf="
+                course.status === 'In Progress' || course.status === 'Completed'
+              "
+            >
               Started on: {{ course.startedOn | date }}
             </p>
           </div>
@@ -46,9 +60,15 @@
           </div>
         </div>
       </div>
-      <div>
-        <a href="" class="btn btn-success mt-4" style="float: left;">View Progress</a>
-        <a href="" class="btn btn-danger mt-4" style="float: right;">Delete</a>
+      <div class="mt-3">
+        <a href="" class="btn btn-success" style="float: left">View Progress</a>
+        <button
+          (click)="deleteCourse(course.id)"
+          class="btn btn-danger"
+          style="float: right"
+        >
+          Delete
+        </button>
       </div>
     </div>
   </div>

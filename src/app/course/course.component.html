@@ -1,0 +1,75 @@
+<div class="container">
+  <h1 class="text-center my-3">Update Course</h1>
+  <div class="alert alert-danger" *ngIf="courseForm.dirty && courseForm.invalid">Enter valid values</div>
+  <form (ngSubmit)="!courseForm.invalid && updateCourse()" #courseForm="ngForm">
+    <div class="mb-3">
+      <label for="courseName" class="form-label">Course Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="courseName"
+        id="courseName"
+        required="required"
+        [(ngModel)]="course.name"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="courseLink" class="form-label">Course Link</label>
+      <input
+        type="url"
+        class="form-control"
+        name="courseLink"
+        id="courseLink"
+        required="required"
+        [(ngModel)]="course.link"
+      />
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label for="startDate" class="form-label">Course Start Date</label>
+          <input
+            type="date"
+            class="form-control"
+            name="startDate"
+            id="startDate"
+            [(ngModel)]="course.startedOn"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label for="completionDate" class="form-label"
+            >Course Completion Date</label
+          >
+          <input
+            type="date"
+            class="form-control"
+            name="completionDate"
+            id="completionDate"
+            [(ngModel)]="course.completedOn"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="mb-3">
+          <label for="status" class="form-label">Course Status</label>
+          <select
+            class="form-select"
+            name="status"
+            aria-label=".form-select-lg"
+            [(ngModel)]="course.status"
+            required="required"
+          >
+            <option value="Not Yet Started" selected>Not Yet Started</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-success">Save</button>
+    </div>
+  </form>
+</div>
