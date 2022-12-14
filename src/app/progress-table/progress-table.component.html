@@ -1,0 +1,40 @@
+<div class="container">
+  <h3 class="text-center my-3">Progress Table</h3>
+  <div class="alert alert-success" role="alert" *ngIf="deleteMessage">
+    {{ deleteMessage }}
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pr of progress; let i = index" class="text-center">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ pr.date }}</td>
+        <td>{{ pr.description }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-warning mx-2"
+            (click)="updateProgress(course.id, pr.id)"
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger mx-2"
+            (click)="deleteProgress(course.id, pr.id)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

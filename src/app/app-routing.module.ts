@@ -5,6 +5,8 @@ import { ErrorComponent } from './error/error.component';
 import { ListCoursesComponent } from './list-courses/list-courses.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ProgressTableComponent } from './progress-table/progress-table.component';
+import { ProgressComponent } from './progress/progress.component';
 import { RouteGuardService } from './service/route-guard.service';
 
 const routes: Routes = [
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "courses", component: ListCoursesComponent, canActivate: [RouteGuardService] },
   { path: "logout", component: LogoutComponent, canActivate: [RouteGuardService] },
+  { path: "courses/:courseId/progress/:progressId", component: ProgressComponent, canActivate: [RouteGuardService] },
+  { path: "courses/:id/progress", component: ProgressTableComponent, canActivate: [RouteGuardService] },
   { path: "courses/:id", component: CourseComponent, canActivate: [RouteGuardService] },
   { path: "**", component: ErrorComponent },
 ];

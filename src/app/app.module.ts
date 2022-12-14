@@ -12,6 +12,8 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CourseComponent } from './course/course.component';
+import { ProgressTableComponent } from './progress-table/progress-table.component';
+import { ProgressComponent } from './progress/progress.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { CourseComponent } from './course/course.component';
     FooterComponent,
     LogoutComponent,
     CourseComponent,
+    ProgressTableComponent,
+    ProgressComponent,
   ],
   imports: [
     BrowserModule,

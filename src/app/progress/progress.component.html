@@ -1,0 +1,47 @@
+<div class="container">
+  <h1 class="text-center my-3">Update Progress</h1>
+  <div
+    class="alert alert-danger"
+    *ngIf="progressForm.dirty && progressForm.invalid"
+  >
+    Enter valid values
+  </div>
+  <form
+    (ngSubmit)="!progressForm.invalid && updateProgress()"
+    #progressForm="ngForm"
+  >
+    <div class="row">
+      <div class="col-md-9">
+        <div class="mb-3">
+          <label for="progressDescription" class="form-label"
+            >Progress Description</label
+          >
+          <textarea
+            class="form-control"
+            aria-label="With textarea"
+            name="progressDescription"
+            id="progressDescription"
+            required="required"
+            [(ngModel)]="progress.description"
+          ></textarea>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="mb-3">
+          <label for="date" class="form-label">Progress Date</label>
+          <input
+            type="date"
+            class="form-control"
+            name="date"
+            id="date"
+            required="required"
+            [(ngModel)]="progress.date"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-success">Save</button>
+    </div>
+  </form>
+</div>

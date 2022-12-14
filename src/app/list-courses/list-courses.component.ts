@@ -55,4 +55,12 @@ export class ListCoursesComponent implements OnInit {
     this.router.navigate(["courses", -1]);
   }
 
+  viewProgress(id: number) {
+    this.router.navigate(["courses", id, "progress"])
+  }
+
+  addProgress(id: number) {
+    this.router.navigate(["courses", id, "progress", -1])
+  }
+
 }
