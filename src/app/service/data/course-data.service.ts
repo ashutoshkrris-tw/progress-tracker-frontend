@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Course } from 'src/app/list-courses/list-courses.component';
 
@@ -24,7 +24,7 @@ export class CourseDataService {
   updateCourseById(id: number, course: Course) {
     return this.http.put(`http://localhost:8080/courses/${id}`, course);
   }
-  
+
   createCourse(course: Course) {
     return this.http.post(`http://localhost:8080/courses/`, course);
   }

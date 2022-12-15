@@ -8,7 +8,7 @@ export class HardcodedAuthenticationService {
   username = "ashutoshkrris"
   password = "password"
 
-  constructor() { }
+  // constructor() { }
 
   authenticate(username: string, password: string): boolean {
 

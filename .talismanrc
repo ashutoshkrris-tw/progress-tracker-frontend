@@ -1,4 +1,6 @@
 fileignoreconfig:
-- filename: src/app/service/hardcoded-authentication.service.ts
-  checksum: d19de08676ab1207d3c08f1f0c7e816add58e089df224b700dea9851bb650c53
+- filename: src/app/service/http/http-intercepter-basic-auth.service.ts
+  checksum: e67fdfeb08adccd4d11c0427a67eefefd5fecb9325910cc8c53ce285c4fcdcd7
+- filename: src/app/service/auth/basic-authentication.service.ts
+  checksum: d2214b01f9e2652b3af44a78137beb893e24de76d9f031faa7fc786f0978aabe
 version: ""
