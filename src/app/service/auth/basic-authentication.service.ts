@@ -46,6 +46,19 @@ export class BasicAuthenticationService {
     )
   }
 
+  executeJWTAuthService(username: string, password: string) {
+
+    return this.http.post<any>(`${API_URL}/authenticate`, { username, password }).pipe(
+      map(
+        response => {
+          sessionStorage.setItem(AUTHENTICATED_USER, username)
+          sessionStorage.setItem(TOKEN, `Bearer ${response.token}`)
+          return response;
+        }
+      )
+    )
+  }
+
   getAutheticatedUser() {
     return sessionStorage.getItem(AUTHENTICATED_USER)
   }

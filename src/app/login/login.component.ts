@@ -39,4 +39,18 @@ export class LoginComponent {
       }
     )
   }
+
+  handleJWTAuthLogin() {
+    this.basicAuthenticationService.executeJWTAuthService(this.username, this.password).subscribe(
+      response => {
+        console.log(response);
+        this.invalidLogin = false;
+        this.router.navigate(['courses'])
+      },
+      error => {
+        console.log(error);
+        this.invalidLogin = true;
+      }
+    )
+  }
 }
